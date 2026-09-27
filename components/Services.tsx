@@ -5,43 +5,38 @@ import { ArrowRight } from "lucide-react";
 
 export default function Services() {
   return (
-    <section id="services" className="section-py bg-[#F5F9F2] relative">
-      <div className="container-site relative z-10">
-        
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16">
+    <section id="services" className="section-py bg-[#F6FAF3]">
+      <div className="container-site">
+        <div className="mb-12 flex flex-col justify-between gap-6 md:mb-14 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <span className="section-label">Our Expertise</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-[#111827]">
-              Comprehensive Electrical Solutions
+            <h2 className="mb-4 text-3xl font-extrabold text-[#101827] md:text-4xl lg:text-5xl">
+              Electrical solutions for the way you live and work
             </h2>
             <div className="section-divider" />
-            <p className="text-[#4B5563] text-lg">
-              From residential repairs to commercial installations, we deliver high-quality workmanship across all aspects of electrical services.
+            <p className="text-lg text-[#475569]">
+              From residential repairs to commercial installations, we deliver practical, high-quality electrical and technology solutions across Melbourne.
             </p>
           </div>
-          
-          <Link href="/services" className="btn-outline hidden md:flex shrink-0">
-            View All Services
+
+          <Link href="/services" className="btn-outline hidden shrink-0 md:flex">
+            View all services
             <ArrowRight size={18} />
           </Link>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
           {services.map((service) => (
             <ServiceCard key={service.id} service={service} />
           ))}
         </div>
 
-        {/* Mobile View All Button */}
-        <div className="mt-10 md:hidden flex justify-center">
+        <div className="mt-9 flex justify-center md:hidden">
           <Link href="/services" className="btn-outline w-full justify-center">
-            View All Services
+            View all services
             <ArrowRight size={18} />
           </Link>
         </div>
-        
       </div>
     </section>
   );
