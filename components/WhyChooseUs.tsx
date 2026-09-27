@@ -2,62 +2,46 @@ import { ShieldCheck, Clock, ThumbsUp, Wrench } from "lucide-react";
 
 export default function WhyChooseUs() {
   const reasons = [
-    {
-      title: "Family Values",
-      description: "As a family-run business, we care deeply about our reputation and treat every customer's home as if it were our own.",
-      icon: ThumbsUp,
-    },
-    {
-      title: "High Standards",
-      description: "We never compromise on safety or quality. All our work is completed to the highest professional and regulatory standards.",
-      icon: ShieldCheck,
-    },
-    {
-      title: "Comprehensive Expertise",
-      description: "From simple electrical maintenance to complex home automation and security systems, we have the skills to handle it all.",
-      icon: Wrench,
-    },
-    {
-      title: "Reliable Service",
-      description: "We turn up when we say we will, communicate clearly throughout the job, and leave your property clean and tidy.",
-      icon: Clock,
-    },
+    { title: "Family Values", description: "As a family-run business, we care deeply about our reputation and treat every customer's home as if it were our own.", icon: ThumbsUp },
+    { title: "High Standards", description: "We never compromise on safety or quality. All our work is completed to the highest professional and regulatory standards.", icon: ShieldCheck },
+    { title: "Comprehensive Expertise", description: "From simple electrical maintenance to complex home automation and security systems, we have the skills to handle it all.", icon: Wrench },
+    { title: "Reliable Service", description: "We turn up when we say we will, communicate clearly throughout the job, and leave your property clean and tidy.", icon: Clock },
   ];
 
   return (
-    <section className="section-py bg-[#0F172A] text-white relative overflow-hidden">
+    <section className="relative overflow-hidden bg-[#0B1220] py-20 text-white md:py-24">
+      <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#72C452]/[0.06] blur-3xl" />
+      <div className="absolute -bottom-28 -left-20 h-72 w-72 rounded-full bg-[#72C452]/[0.05] blur-3xl" />
+
       <div className="container-site relative z-10">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block font-bold tracking-widest uppercase text-[#72C452] text-sm mb-4">
-            The Prokop Difference
+        <div className="mx-auto mb-14 max-w-3xl text-center md:mb-16">
+          <span className="mb-4 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.14em] text-[#72C452]">
+            <span className="h-px w-5 bg-[#72C452]" />
+            The Prokop difference
+            <span className="h-px w-5 bg-[#72C452]" />
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-white">
-            Why Choose Prokop?
+          <h2 className="mb-5 text-3xl font-extrabold text-white md:text-4xl lg:text-5xl">
+            Why choose Prokop?
           </h2>
-          <div className="w-14 h-1 bg-[#72C452] mx-auto rounded-full mb-6" />
-          <p className="text-[#E2E8F0] text-lg">
-            When you choose Prokop Electrical Services, you are choosing a team dedicated to excellence, safety, and outstanding customer care.
+          <p className="text-lg leading-8 text-slate-300">
+            A family-run team focused on safe workmanship, dependable service, and a professional customer experience.
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {reasons.map((reason, index) => {
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {reasons.map((reason) => {
             const Icon = reason.icon;
             return (
-              <div
-                key={index}
-                className="bg-[#172033] border border-white/15 rounded-2xl p-8 shadow-[0_8px_24px_rgba(0,0,0,0.18)] hover:bg-[#1B273C] hover:border-[#72C452]/60 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.24)] transition-all duration-300"
+              <article
+                key={reason.title}
+                className="group rounded-[1.25rem] border border-white/10 bg-[#142033] p-7 shadow-[0_12px_28px_rgba(0,0,0,0.20)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#72C452]/50 hover:bg-[#18283E] hover:shadow-[0_20px_40px_rgba(0,0,0,0.28)]"
               >
-                <div className="w-14 h-14 rounded-xl bg-[#72C452]/15 flex items-center justify-center text-[#72C452] mb-6">
-                  <Icon size={28} />
+                <div className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#72C452]/20 bg-[#72C452]/10 text-[#8FE26F] transition-all duration-300 group-hover:bg-[#72C452] group-hover:text-[#0B1220]">
+                  <Icon size={27} strokeWidth={2.2} />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white">{reason.title}</h3>
-                <p className="text-[#E2E8F0] leading-relaxed text-sm">
-                  {reason.description}
-                </p>
-              </div>
+                <h3 className="mb-3 text-xl font-extrabold text-white">{reason.title}</h3>
+                <p className="text-sm leading-7 text-slate-300">{reason.description}</p>
+              </article>
             );
           })}
         </div>
