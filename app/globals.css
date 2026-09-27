@@ -1,80 +1,72 @@
 @import "tailwindcss";
 
 /* ============================================================
-   PROKOP ELECTRICAL SERVICES — Global Design System
+   PROKOP ELECTRICAL SERVICES — Visual Design System
    ============================================================ */
 
-/* ============================================================
-   DESIGN TOKENS — CSS Custom Properties
-   ============================================================ */
 :root {
-  /* Brand Colors */
+  /* Brand */
   --color-green: #72C452;
-  --color-green-hover: #5BA63D;
+  --color-green-hover: #5BA83D;
   --color-green-light: #EAF6E4;
-  --color-green-subtle: #F5F9F2;
-  --color-dark: #111827;
-  --color-dark-2: #1F2937;
-  --color-white: #FFFFFF;
+  --color-green-subtle: #F6FAF3;
 
-  /* Typography */
-  --color-text-heading: #111827;
-  --color-text-body: #0F172A;
-  --color-text-secondary: #6B7280;
-  --color-text-muted: #9CA3AF;
+  /* Ink / Navy */
+  --color-dark: #0B1220;
+  --color-dark-2: #142033;
+  --color-dark-3: #1C2A40;
 
-  /* Borders */
-  --color-border: #E5E7EB;
-  --color-border-strong: #D1D5DB;
+  /* Content */
+  --color-text-heading: #101827;
+  --color-text-body: #334155;
+  --color-text-secondary: #64748B;
+  --color-text-muted: #94A3B8;
 
   /* Surfaces */
   --color-bg: #FFFFFF;
-  --color-bg-alt: #F5F9F2;
-  --color-bg-light: #F9FAFB;
+  --color-bg-alt: #F6FAF3;
+  --color-bg-light: #F8FAFC;
+
+  /* Borders */
+  --color-border: #E2E8F0;
+  --color-border-strong: #CBD5E1;
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.08);
-  --shadow-md: 0 8px 20px rgba(15, 23, 42, 0.12);
-  --shadow-lg: 0 14px 32px rgba(15, 23, 42, 0.16);
-  --shadow-xl: 0 22px 45px rgba(15, 23, 42, 0.20);
+  --shadow-sm: 0 4px 14px rgba(15, 23, 42, 0.07);
+  --shadow-md: 0 10px 28px rgba(15, 23, 42, 0.10);
+  --shadow-lg: 0 18px 42px rgba(15, 23, 42, 0.14);
+  --shadow-xl: 0 28px 60px rgba(15, 23, 42, 0.18);
 
-  /* Spacing / Layout */
+  /* Layout */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --section-py: 5rem;
+  --section-py: 5.5rem;
   --container-max: 1280px;
   --container-px: 1.5rem;
 
   /* Radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
+  --radius-sm: 0.625rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
 
-  /* Transitions */
+  /* Motion */
   --transition-base: all 0.2s ease;
   --transition-slow: all 0.35s ease;
 }
 
-/* ============================================================
-   TAILWIND v4 THEME EXTENSION
-   ============================================================ */
 @theme inline {
   --color-brand-green: #72C452;
-  --color-brand-green-hover: #5BA63D;
+  --color-brand-green-hover: #5BA83D;
   --color-brand-green-light: #EAF6E4;
-  --color-brand-green-subtle: #F5F9F2;
-  --color-brand-dark: #111827;
-  --color-brand-dark-2: #1F2937;
+  --color-brand-green-subtle: #F6FAF3;
+  --color-brand-dark: #0B1220;
+  --color-brand-dark-2: #142033;
   --color-brand-white: #FFFFFF;
-  --color-brand-text: #4B5563;
-  --color-brand-border: #E5E7EB;
-
+  --color-brand-text: #334155;
+  --color-brand-border: #E2E8F0;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-/* ============================================================
-   BASE RESET & GLOBALS
-   ============================================================ */
 *,
 *::before,
 *::after {
@@ -88,7 +80,7 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-bg);
+  background: var(--color-bg);
   color: var(--color-text-body);
   line-height: 1.6;
   font-size: 1rem;
@@ -97,9 +89,11 @@ body {
   overflow-x: hidden;
 }
 
-/* ============================================================
-   TYPOGRAPHY SYSTEM
-   ============================================================ */
+::selection {
+  background: rgba(114, 196, 82, 0.25);
+  color: var(--color-dark);
+}
+
 h1,
 h2,
 h3,
@@ -108,17 +102,17 @@ h5,
 h6 {
   font-family: var(--font-sans);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.18;
   color: var(--color-text-heading);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 h1 {
-  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-size: clamp(2.35rem, 5vw, 4.25rem);
 }
 
 h2 {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: clamp(1.9rem, 3vw, 3rem);
 }
 
 h3 {
@@ -146,140 +140,137 @@ img {
   display: block;
 }
 
-/* ============================================================
-   UTILITY CLASSES
-   ============================================================ */
-
-/* Container */
 .container-site {
+  width: 100%;
   max-width: var(--container-max);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--container-px);
-  padding-right: var(--container-px);
+  margin-inline: auto;
+  padding-inline: var(--container-px);
 }
 
-/* Section spacing */
 .section-py {
-  padding-top: var(--section-py);
-  padding-bottom: var(--section-py);
+  padding-block: var(--section-py);
 }
 
-/* Section labels */
 .section-label {
-  display: inline-block;
-  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-green);
-  margin-bottom: 0.75rem;
+  color: var(--color-green-hover);
+  margin-bottom: 0.9rem;
 }
 
-/* Buttons */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  background-color: var(--color-green);
-  color: var(--color-dark);
-  font-weight: 700;
-  font-size: 1rem;
-  border-radius: var(--radius-sm);
-  border: 2px solid var(--color-green);
-  cursor: pointer;
-  transition: var(--transition-base);
-  white-space: nowrap;
-  text-decoration: none;
+.section-label::before {
+  content: "";
+  width: 1.25rem;
+  height: 2px;
+  background: var(--color-green);
+  border-radius: 999px;
 }
 
-.btn-primary:hover {
-  background-color: var(--color-green-hover);
-  border-color: var(--color-green-hover);
-  color: var(--color-white);
-}
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  background-color: transparent;
-  color: var(--color-white);
-  font-weight: 700;
-  font-size: 1rem;
-  border-radius: var(--radius-sm);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: var(--transition-base);
-  white-space: nowrap;
-  text-decoration: none;
-}
-
-.btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.8);
-}
-
+.btn-primary,
+.btn-secondary,
 .btn-outline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  background-color: transparent;
-  color: var(--color-dark);
-  font-weight: 700;
-  font-size: 1rem;
+  gap: 0.55rem;
+  padding: 0.9rem 1.35rem;
+  font-weight: 800;
+  font-size: 0.96rem;
   border-radius: var(--radius-sm);
-  border: 2px solid var(--color-dark);
   cursor: pointer;
-  transition: var(--transition-base);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   white-space: nowrap;
   text-decoration: none;
 }
 
-.btn-outline:hover {
-  background-color: var(--color-dark);
-  color: var(--color-white);
+.btn-primary {
+  background: var(--color-green);
+  color: var(--color-dark);
+  border: 2px solid var(--color-green);
+  box-shadow: 0 8px 18px rgba(114, 196, 82, 0.22);
 }
 
-/* Card base */
+.btn-primary:hover {
+  background: var(--color-green-hover);
+  border-color: var(--color-green-hover);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(114, 196, 82, 0.28);
+}
+
+.btn-secondary {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.42);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  color: var(--color-dark);
+  background: #FFFFFF;
+  border: 2px solid var(--color-dark);
+}
+
+.btn-outline:hover {
+  background: var(--color-dark);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
 .card {
-  background: var(--color-white);
+  background: #FFFFFF;
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
-  box-shadow: none;
-  transition: var(--transition-slow);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
 
 .card:hover {
-  border-color: var(--color-green);
-  background: #F8FCF5;
-  box-shadow: var(--shadow-md);
+  transform: translateY(-5px);
+  border-color: rgba(114, 196, 82, 0.65);
+  box-shadow: var(--shadow-lg);
 }
 
-/* Focus visible ring */
 *:focus-visible {
-  outline: 2px solid var(--color-green);
-  outline-offset: 2px;
-  border-radius: 2px;
+  outline: 3px solid rgba(114, 196, 82, 0.45);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
-/* Section divider */
+input,
+textarea,
+select {
+  font: inherit;
+}
+
 .section-divider {
-  width: 3.5rem;
+  width: 3.75rem;
   height: 4px;
   background: var(--color-green);
-  border-radius: 2px;
+  border-radius: 999px;
   margin-bottom: 1.5rem;
 }
 
-/* Gradient text — accent word */
 .gradient-text {
   color: var(--color-green);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --section-py: 4.5rem;
+    --container-px: 1rem;
+  }
 }
