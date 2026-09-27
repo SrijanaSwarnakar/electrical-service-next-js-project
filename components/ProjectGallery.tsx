@@ -85,7 +85,7 @@ export default function ProjectGallery() {
               />
               
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/95 via-[#111827]/75 via-55% to-[#111827]/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/95 via-[#111827]/75 to-[#111827]/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                 <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                   <span className="text-[#8BE06A] font-bold text-xs tracking-wider uppercase mb-2 block drop-shadow-[0_2px_5px_rgba(0,0,0,0.7)]">
                     {project.category}
