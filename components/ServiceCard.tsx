@@ -6,7 +6,6 @@ interface ServiceCardProps {
   service: Service;
 }
 
-// Map string icon names to Lucide components
 const iconMap: Record<string, React.ElementType> = {
   Zap,
   Shield,
@@ -20,28 +19,30 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const Icon = iconMap[service.iconName] || Zap;
 
   return (
-    <div className="card group relative flex flex-col h-full bg-white p-8 border border-[#E5E7EB] hover:border-[#72C452] hover:shadow-md transition-all duration-300 rounded-2xl">
-      {/* Icon */}
-      <div className="w-14 h-14 rounded-xl bg-[#F5F9F2] flex items-center justify-center text-[#111827] mb-6 group-hover:bg-[#72C452] group-hover:text-white transition-colors duration-300">
-        <Icon size={28} />
+    <article className="group flex h-full flex-col rounded-[1.25rem] border border-[#E2E8F0] bg-white p-7 shadow-[0_4px_14px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#72C452]/60 hover:shadow-[0_18px_40px_rgba(15,23,42,0.12)]">
+      <div className="mb-7 flex items-center justify-between">
+        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F0F8EC] text-[#4D9634] transition-all duration-300 group-hover:bg-[#72C452] group-hover:text-white group-hover:shadow-[0_8px_18px_rgba(114,196,82,0.24)]">
+          <Icon size={27} strokeWidth={2.2} />
+        </div>
+        <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#94A3B8]">
+          {String(service.id).replaceAll("-", " ")}
+        </span>
       </div>
 
-      {/* Content */}
-      <h3 className="text-xl font-bold mb-3 text-[#111827] group-hover:text-[#72C452] transition-colors">
+      <h3 className="mb-3 text-xl font-extrabold text-[#101827] transition-colors group-hover:text-[#4D9634]">
         {service.title}
       </h3>
-      <p className="text-[#4B5563] mb-6 flex-grow leading-relaxed">
+      <p className="mb-7 flex-grow leading-7 text-[#475569]">
         {service.shortDescription}
       </p>
 
-      {/* Link */}
       <Link
         href={`/services#${service.slug}`}
-        className="inline-flex items-center gap-2 text-[#111827] font-bold text-sm group-hover:text-[#72C452] transition-colors mt-auto"
+        className="inline-flex items-center gap-2 text-sm font-extrabold text-[#101827] group-hover:text-[#4D9634]"
       >
         Learn more
-        <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+        <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
       </Link>
-    </div>
+    </article>
   );
 }
