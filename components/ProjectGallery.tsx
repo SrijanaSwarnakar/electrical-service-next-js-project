@@ -74,7 +74,7 @@ export default function ProjectGallery() {
           {displayProjects.map((project) => (
             <div 
               key={project.id}
-              className="group relative rounded-2xl overflow-hidden aspect-square bg-[#F5F9F2] border border-[#E5E7EB] cursor-pointer shadow-sm hover:shadow-lg transition-all duration-500"
+              className="group relative rounded-2xl overflow-hidden aspect-square bg-[#F5F9F2] border border-[#E5E7EB] cursor-pointer shadow-sm hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.18)] transition-all duration-500"
             >
               <Image
                 src={project.imageSrc}
@@ -85,23 +85,23 @@ export default function ProjectGallery() {
               />
               
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/95 via-[#111827]/75 to-[#111827]/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                 <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <span className="text-[#72C452] font-bold text-xs tracking-wider uppercase mb-2 block">
+                  <span className="text-[#8BE06A] font-bold text-xs tracking-wider uppercase mb-2 block drop-shadow-[0_2px_5px_rgba(0,0,0,0.7)]">
                     {project.category}
                   </span>
-                  <h3 className="text-white font-extrabold text-xl mb-2">
+                  <h3 className="text-white font-extrabold text-xl mb-2 drop-shadow-[0_2px_7px_rgba(0,0,0,0.75)]">
                     {project.title}
                   </h3>
                   {project.description && (
-                    <p className="text-[#D1D5DB] text-sm line-clamp-2">
+                    <p className="text-white/95 text-sm line-clamp-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">
                       {project.description}
                     </p>
                   )}
                 </div>
                 
                 {/* Expand icon */}
-                <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transform -translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-100 border border-white/20">
+                <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-[#111827]/65 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transform -translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-100 border border-white/20">
                   <Maximize2 size={18} />
                 </div>
               </div>

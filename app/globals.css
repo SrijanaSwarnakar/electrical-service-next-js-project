@@ -33,10 +33,10 @@
   --color-bg-light: #F9FAFB;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(230, 236, 228, 0.06);
-  --shadow-md: 0 4px 6px -1px rgba(233, 246, 238, 0.1), 0 2px 4px -1px rgba(195, 210, 201, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(227, 231, 238, 0.08), 0 4px 6px -2px rgba(182, 183, 187, 0.04);
-  --shadow-xl: 0 20px 25px -5px rgba(17, 24, 39, 0.08), 0 10px 10px -5px rgba(215, 217, 220, 0.03);
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 8px 20px rgba(15, 23, 42, 0.12);
+  --shadow-lg: 0 14px 32px rgba(15, 23, 42, 0.16);
+  --shadow-xl: 0 22px 45px rgba(15, 23, 42, 0.20);
 
   /* Spacing / Layout */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;

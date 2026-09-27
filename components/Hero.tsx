@@ -16,7 +16,7 @@ export default function Hero() {
           className="object-cover object-[center_30%]"
         />
         {/* Localized gradient ONLY behind the text area for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#111827]/80 via-[#111827]/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07101D]/90 via-[#111827]/65 to-[#111827]/15" />
       </div>
 
       <div className="container-site relative z-10 w-full py-24">
@@ -30,13 +30,13 @@ export default function Hero() {
           </div>
 
           {/* Heading */}
-          <h1 className="text-green text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6 drop-shadow-md">
+          <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6 drop-shadow-[0_3px_12px_rgba(0,0,0,0.55)]">
             Reliable Electrical Services, Built for{" "}
             <span className="text-[#72C452]">Your Home & Business.</span>
           </h1>
 
           {/* Description */}
-          <p className="text-white/95 text-lg md:text-xl mb-10 max-w-xl leading-relaxed drop-shadow">
+          <p className="text-white text-lg md:text-xl mb-10 max-w-xl leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]">
             {company.description}
           </p>
 
