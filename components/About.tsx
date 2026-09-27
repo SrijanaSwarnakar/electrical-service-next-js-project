@@ -12,13 +12,11 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="section-py bg-white overflow-hidden">
+    <section id="about" className="section-py overflow-hidden bg-white">
       <div className="container-site">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          
-          {/* Image Content */}
-          <div className="w-full lg:w-1/2 relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-md aspect-[4/3] w-full border border-[#E5E7EB]">
+        <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-20">
+          <div className="relative w-full lg:w-1/2">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[1.5rem] border border-[#E2E8F0] bg-[#F8FAFC] shadow-[0_18px_42px_rgba(15,23,42,0.12)]">
               <Image
                 src="/images/page-work2.jpg"
                 alt="Prokop Electrical Services technician working"
@@ -26,41 +24,41 @@ export default function About() {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#0B1220]/10 via-transparent to-white/10" />
             </div>
-            {/* Subtle decorative accent block */}
-            <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-[#72C452]/20 rounded-2xl -z-10 hidden md:block" />
-            <div className="absolute -top-6 -left-6 w-32 h-32 bg-[#F5F9F2] border border-[#E5E7EB] rounded-2xl -z-10 hidden md:block" />
+
+            <div className="absolute -bottom-5 -right-5 hidden h-32 w-32 rounded-[1.5rem] border border-[#72C452]/20 bg-[#72C452]/10 md:block" />
+            <div className="absolute -top-5 -left-5 hidden h-24 w-24 rounded-[1.25rem] border border-[#E2E8F0] bg-[#F6FAF3] md:block" />
           </div>
 
-          {/* Text Content */}
           <div className="w-full lg:w-1/2">
-            <span className="section-label">About Us</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 text-[#111827]">
-              Melbourne&apos;s Proud Family-Run Electrical Company
+            <span className="section-label">About us</span>
+            <h2 className="mb-6 text-3xl font-extrabold text-[#101827] md:text-4xl lg:text-5xl">
+              A family-run electrical team you can rely on
             </h2>
             <div className="section-divider" />
-            
-            <p className="text-[#4B5563] text-lg mb-6 leading-relaxed">
+
+            <p className="mb-6 text-lg leading-8 text-[#475569]">
               {company.description}
             </p>
-            <p className="text-[#4B5563] text-lg mb-8 leading-relaxed">
-              We specialise in all things electrical, security, data, access control, home automation, and split system AC. Our commitment is to deliver every project—no matter the size—to the highest possible standard.
+            <p className="mb-8 text-lg leading-8 text-[#475569]">
+              We specialise in electrical, security, data, access control, home automation, and split system AC services. Every project is approached with care, clear communication, and a high standard of workmanship.
             </p>
 
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-              {highlights.map((item, index) => (
-                <li key={index} className="flex items-center gap-3">
-                  <CheckCircle2 className="text-[#72C452] shrink-0" size={20} />
-                  <span className="text-[#111827] font-bold">{item}</span>
+            <ul className="mb-9 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {highlights.map((item) => (
+                <li key={item} className="flex items-center gap-3 rounded-xl bg-[#F8FAFC] px-4 py-3">
+                  <CheckCircle2 className="shrink-0 text-[#5BA83D]" size={20} />
+                  <span className="font-bold text-[#172033]">{item}</span>
                 </li>
               ))}
             </ul>
 
             <Link href="/about" className="btn-primary">
-              Learn More About Us
+              Learn more about us
+              <ArrowRight size={17} />
             </Link>
           </div>
-
         </div>
       </div>
     </section>
