@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { company } from "@/data/company";
 
 export default function About() {
