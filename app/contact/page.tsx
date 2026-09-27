@@ -4,106 +4,76 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export default function ContactPage() {
   return (
-    <main className="flex flex-col min-h-screen bg-white">
-      
-      {/* Page Header */}
-      <section className="bg-[#111827] text-white py-16 md:py-24 text-center px-6">
+    <main className="flex min-h-screen flex-col bg-white">
+      <section className="bg-[#0B1220] px-6 py-16 text-center text-white md:py-24">
         <div className="container-site">
-          <span className="inline-block font-bold tracking-widest uppercase text-[#72C452] text-sm mb-3">
-            Contact Us
-          </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-white">Get in Touch</h1>
-          <p className="text-[#D1D5DB] text-lg max-w-2xl mx-auto">
-            Need an electrician in Melbourne? Get in touch with our friendly team today for a free quote or expert advice.
+          <span className="section-label !text-[#72C452]">Contact us</span>
+          <h1 className="mb-5 text-4xl font-extrabold text-white md:text-5xl">Let&apos;s talk about your project</h1>
+          <p className="mx-auto max-w-2xl text-lg leading-8 text-slate-300">
+            Need an electrician in Melbourne? Contact our friendly team for a free quote or expert advice.
           </p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="section-py px-6 bg-[#F5F9F2]">
+      <section className="section-py bg-[#F6FAF3] px-6">
         <div className="container-site">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
-            
-            {/* Contact Details Side */}
-            <div className="w-full lg:w-5/12 space-y-10">
-              <div>
-                <span className="section-label">Contact Details</span>
-                <h2 className="text-3xl font-bold text-[#111827] mb-6">
-                  We&apos;re here to help
-                </h2>
-                <p className="text-[#4B5563] mb-8 leading-relaxed">
-                  Whether you have an electrical emergency, need a quote for a major project, or just have a question about our services, we&apos;re ready to assist you.
-                </p>
-              </div>
-              
-              <div className="space-y-6">
-                {/* Phone */}
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#72C452]/20 flex items-center justify-center text-[#72C452] shrink-0">
-                    <Phone size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-[#111827] mb-1">Call Us</h3>
-                    <a href={`tel:${company.phone.replace(/\s+/g, "")}`} className="text-[#4B5563] hover:text-[#72C452] font-semibold text-lg transition-colors">
-                      {company.phone}
+          <div className="flex flex-col gap-12 lg:flex-row lg:gap-20">
+            <div className="w-full lg:w-5/12">
+              <span className="section-label">Contact details</span>
+              <h2 className="mb-5 text-3xl font-extrabold text-[#101827]">We&apos;re here to help</h2>
+              <p className="mb-9 leading-7 text-[#475569]">
+                Whether you need a quote, help with an electrical project, or advice about our services, our team is ready to assist.
+              </p>
+
+              <div className="space-y-4">
+                {[
+                  { icon: Phone, title: "Call us", content: company.phone, href: `tel:${company.phone.replace(/\s+/g, "")}` },
+                  { icon: Mail, title: "Email us", content: company.email, href: `mailto:${company.email}` },
+                ].map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <a key={item.title} href={item.href} className="group flex items-start gap-4 rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-[0_4px_14px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 hover:border-[#72C452]/50 hover:shadow-md">
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#F0F8EC] text-[#4D9634] group-hover:bg-[#72C452] group-hover:text-white">
+                        <Icon size={22} />
+                      </span>
+                      <span>
+                        <span className="block text-sm font-extrabold uppercase tracking-[0.1em] text-[#64748B]">{item.title}</span>
+                        <span className="mt-1 block font-bold text-[#101827] group-hover:text-[#4D9634]">{item.content}</span>
+                      </span>
                     </a>
-                  </div>
+                  );
+                })}
+
+                <div className="flex items-start gap-4 rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-[0_4px_14px_rgba(15,23,42,0.05)]">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#F0F8EC] text-[#4D9634]">
+                    <MapPin size={22} />
+                  </span>
+                  <span>
+                    <span className="block text-sm font-extrabold uppercase tracking-[0.1em] text-[#64748B]">Location</span>
+                    <span className="mt-1 block font-bold text-[#101827]">{company.address.line1}<br />{company.address.city}, {company.address.state} {company.address.postcode}</span>
+                  </span>
                 </div>
 
-                {/* Email */}
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#72C452]/20 flex items-center justify-center text-[#72C452] shrink-0">
-                    <Mail size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-[#111827] mb-1">Email Us</h3>
-                    <a href={`mailto:${company.email}`} className="text-[#4B5563] hover:text-[#72C452] transition-colors">
-                      {company.email}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Location */}
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#72C452]/20 flex items-center justify-center text-[#72C452] shrink-0">
-                    <MapPin size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-[#111827] mb-1">Location</h3>
-                    <p className="text-[#4B5563]">
-                      {company.address.line1}<br />
-                      {company.address.city}, {company.address.state} {company.address.postcode}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Hours */}
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#72C452]/20 flex items-center justify-center text-[#72C452] shrink-0">
-                    <Clock size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-[#111827] mb-1">Business Hours</h3>
-                    <p className="text-[#4B5563]">
-                      Monday - Friday: 7:00 AM - 5:00 PM<br />
-                      Emergency Callouts Available
-                    </p>
-                  </div>
+                <div className="flex items-start gap-4 rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-[0_4px_14px_rgba(15,23,42,0.05)]">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#F0F8EC] text-[#4D9634]">
+                    <Clock size={22} />
+                  </span>
+                  <span>
+                    <span className="block text-sm font-extrabold uppercase tracking-[0.1em] text-[#64748B]">Business hours</span>
+                    <span className="mt-1 block font-bold leading-6 text-[#101827]">Monday - Friday: 7:00 AM - 5:00 PM<br />Emergency callouts available</span>
+                  </span>
                 </div>
               </div>
             </div>
 
-            {/* Form Side */}
             <div className="w-full lg:w-7/12">
               <ContactForm />
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* Google Maps Embed */}
-      <section className="w-full h-[400px] md:h-[500px] bg-[#E5E7EB] relative">
+      <section className="relative h-[400px] w-full bg-[#E2E8F0] md:h-[500px]">
         <iframe
           src="https://maps.google.com/maps?q=8/158%20Chesterville%20Road,%20Moorabbin,%20VIC,%20Australia,%203189&t=&z=14&ie=UTF8&iwloc=&output=embed"
           width="100%"
@@ -113,7 +83,7 @@ export default function ContactPage() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           title="Prokop Electrical Services Location"
-          className="absolute inset-0 grayscale hover:grayscale-0 transition-all duration-700"
+          className="absolute inset-0 grayscale transition-all duration-700 hover:grayscale-0"
         />
       </section>
     </main>
