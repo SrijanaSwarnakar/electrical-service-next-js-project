@@ -5,7 +5,6 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import ProjectGallery from "@/components/ProjectGallery";
 import SocialSection from "@/components/SocialSection";
 import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
       <ProjectGallery />
       <SocialSection />
       <CTA />
-      <Footer />
     </main>
   );
 }

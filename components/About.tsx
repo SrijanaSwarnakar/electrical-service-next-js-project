@@ -28,7 +28,8 @@ export default function About() {
             </div>
 
             <div className="absolute -bottom-5 -right-5 hidden h-32 w-32 rounded-[1.5rem] border border-[#72C452]/20 bg-[#72C452]/10 md:block" />
-            <div className="absolute -top-5 -left-5 hidden h-24 w-24 rounded-[1.25rem] border border-[#E2E8F0] bg-[#F6FAF3] md:block" />
+            {/* <div className="absolute -top-5 -left-5 hidden h-24 w-24 rounded-[1.25rem] border border-[#E2E8F0] bg-[#F6FAF3] md:block" /> */}
+            <div className="absolute -top-5 -left-5 hidden h-32 w-32 rounded-[1.5rem] border border-[#72C452]/20 bg-[#72C452]/10 md:block" />
           </div>
 
           <div className="w-full lg:w-1/2">

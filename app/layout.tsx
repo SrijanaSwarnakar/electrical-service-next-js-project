@@ -11,6 +11,7 @@ const inter = Inter({
 import Navbar from "@/components/Navbar";
 import { company } from "@/data/company";
 import Script from "next/script";
+import Footer from "@/components/Footer";
 
 export const viewport = {
   width: "device-width",
@@ -84,6 +85,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col antialiased pt-[88px]">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -103,7 +103,7 @@ h6 {
   font-family: var(--font-sans);
   font-weight: 800;
   line-height: 1.18;
-  color: var(--color-text-heading);
+  /* color: var(--color-text-heading); */
   letter-spacing: -0.025em;
 }
 
@@ -124,7 +124,7 @@ h4 {
 }
 
 p {
-  color: var(--color-text-body);
+  /* color: var(--color-text-body); */
   line-height: 1.75;
 }
 
