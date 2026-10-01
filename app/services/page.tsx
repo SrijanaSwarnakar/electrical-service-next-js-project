@@ -1,7 +1,11 @@
+import Services from "@/components/Services";
+
 export default function ServicesPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-[#F5F9F2] text-[#111827]">
-      <h1 className="text-3xl font-bold">Services</h1>
+    <main className="min-h-screen bg-white">
+      <div className="pt-20 md:pt-24">
+        <Services showAll />
+      </div>
     </main>
   );
 }
