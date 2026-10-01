@@ -7,18 +7,28 @@ import { projects } from "@/data/projects";
 import type { ProjectCategory } from "@/types";
 import { ArrowRight, Maximize2 } from "lucide-react";
 
-export default function ProjectGallery() {
+export default function ProjectGallery({
+  showAll = false,
+}: {
+  showAll?: boolean;
+}) {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | "All">("All");
 
   const filteredProjects = activeCategory === "All"
     ? projects
     : projects.filter((project) => project.category === activeCategory);
 
-  const displayProjects = filteredProjects.slice(0, 6);
+  const displayProjects = showAll
+    ? filteredProjects
+    : filteredProjects.slice(0, 6);
+
   const categories = Array.from(new Set(projects.map((project) => project.category)));
 
   return (
-    <section id="projects" className="section-py bg-white">
+    <section
+      id="projects"
+      className="section-py scroll-mt-24 bg-white"
+    >
       <div className="container-site">
         <div className="mb-12 flex flex-col justify-between gap-6 md:mb-14 md:flex-row md:items-end">
           <div className="max-w-2xl">
@@ -31,10 +41,16 @@ export default function ProjectGallery() {
               A selection of recent residential and commercial work across Melbourne, from lighting and maintenance to electrical control systems.
             </p>
           </div>
-          <Link href="/projects" className="btn-outline hidden shrink-0 md:flex">
-            View all projects
-            <ArrowRight size={18} />
-          </Link>
+
+          {!showAll && (
+            <Link
+              href="/projects"
+              className="btn-outline hidden shrink-0 md:flex"
+            >
+              View all projects
+              <ArrowRight size={18} />
+            </Link>
+          )}
         </div>
 
         <div className="mb-9 flex flex-wrap gap-2.5">
@@ -114,12 +130,17 @@ export default function ProjectGallery() {
           </div>
         )}
 
-        <div className="mt-9 flex justify-center md:hidden">
-          <Link href="/projects" className="btn-outline w-full justify-center">
-            View all projects
-            <ArrowRight size={18} />
-          </Link>
-        </div>
+        {!showAll && (
+          <div className="mt-9 flex justify-center md:hidden">
+            <Link
+              href="/projects"
+              className="btn-outline w-full justify-center"
+            >
+              View all projects
+              <ArrowRight size={18} />
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
