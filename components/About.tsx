@@ -3,7 +3,11 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { company } from "@/data/company";
 
-export default function About() {
+export default function About({
+  showAll = false,
+}: {
+  showAll?: boolean;
+}) {
   const highlights = [
     "Proud family-run business",
     "Serving all of Melbourne",
@@ -12,7 +16,10 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="section-py overflow-hidden bg-white">
+    <section
+      id="about"
+      className="section-py scroll-mt-24 overflow-hidden bg-white"
+    >
       <div className="container-site">
         <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-20">
           <div className="relative w-full lg:w-1/2">
@@ -55,10 +62,12 @@ export default function About() {
               ))}
             </ul>
 
-            <Link href="/about" className="btn-primary">
-              Learn more about us
-              <ArrowRight size={17} />
-            </Link>
+            {!showAll && (
+              <Link href="/about" className="btn-primary">
+                Learn more about us
+                <ArrowRight size={17} />
+              </Link>
+            )}
           </div>
         </div>
       </div>

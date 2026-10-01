@@ -3,9 +3,16 @@ import ServiceCard from "./ServiceCard";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export default function Services() {
+export default function Services({
+  showAll = false,
+}: {
+  showAll?: boolean;
+}) {
   return (
-    <section id="services" className="section-py bg-[#F6FAF3]">
+    <section
+      id="services"
+      className="section-py scroll-mt-24 bg-[#F6FAF3]"
+    >
       <div className="container-site">
         <div className="mb-12 flex flex-col justify-between gap-6 md:mb-14 md:flex-row md:items-end">
           <div className="max-w-2xl">
@@ -19,10 +26,15 @@ export default function Services() {
             </p>
           </div>
 
-          <Link href="/services" className="btn-outline hidden shrink-0 md:flex">
-            View all services
-            <ArrowRight size={18} />
-          </Link>
+          {!showAll && (
+            <Link
+              href="/services"
+              className="btn-outline hidden shrink-0 md:flex"
+            >
+              View all services
+              <ArrowRight size={18} />
+            </Link>
+          )}
         </div>
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
@@ -31,12 +43,17 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="mt-9 flex justify-center md:hidden">
-          <Link href="/services" className="btn-outline w-full justify-center">
-            View all services
-            <ArrowRight size={18} />
-          </Link>
-        </div>
+        {!showAll && (
+          <div className="mt-9 flex justify-center md:hidden">
+            <Link
+              href="/services"
+              className="btn-outline w-full justify-center"
+            >
+              View all services
+              <ArrowRight size={18} />
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
