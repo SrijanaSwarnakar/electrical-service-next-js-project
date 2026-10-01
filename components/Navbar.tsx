@@ -6,11 +6,11 @@ import { Menu, X, Phone } from "lucide-react";
 import { company } from "@/data/company";
 
 const navLinks = [
-  { label: "Home", id: "home" },
-  { label: "Services", id: "services" },
-  { label: "About", id: "about" },
-  { label: "Projects", id: "projects" },
-  { label: "Contact", id: "contact" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Projects", href: "/projects" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -61,7 +61,7 @@ export default function Navbar() {
     >
       <div className="container-site flex items-center justify-between">
         <Link
-          href="/#home"
+          href="/"
           onClick={closeMobileMenu}
           className="group relative z-[80] flex items-center gap-2.5"
         >
@@ -106,12 +106,13 @@ export default function Navbar() {
           </div>
         </Link>
 
+        {/* Desktop navigation */}
         <nav className="hidden items-center gap-8 md:flex">
           <ul className="flex items-center gap-6">
             {navLinks.map((link) => (
-              <li key={link.id}>
+              <li key={link.href}>
                 <Link
-                  href={`/#${link.id}`}
+                  href={link.href}
                   className="text-sm font-bold text-[#334155] transition-colors hover:text-[#4D9634]"
                 >
                   {link.label}
@@ -129,6 +130,7 @@ export default function Navbar() {
           </a>
         </nav>
 
+        {/* Mobile hamburger */}
         <button
           type="button"
           className="relative z-[80] p-2 text-[#101827] md:hidden"
@@ -140,17 +142,18 @@ export default function Navbar() {
           {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
 
+        {/* Mobile 75% width menu */}
         {isMobileMenuOpen && (
           <div
             id="mobile-navigation"
-            className="fixed inset-y-0 right-0 z-[60] flex min-h-screen w-[75vw] flex-col overflow-y-auto bg-white px-6 pt-24 shadow-2xl md:hidden"
+            className="fixed inset-y-0 right-0 z-[60] flex min-h-screen w-[75vw] flex-col overflow-y-auto border-l border-[#E2E8F0] bg-white px-6 pt-24 shadow-2xl md:hidden"
           >
             <nav>
               <ul className="flex flex-col">
                 {navLinks.map((link) => (
-                  <li key={link.id} className="border-b border-[#E2E8F0]">
+                  <li key={link.href} className="border-b border-[#E2E8F0]">
                     <Link
-                      href={`/#${link.id}`}
+                      href={link.href}
                       onClick={closeMobileMenu}
                       className="block py-5 text-left text-2xl font-extrabold text-[#101827] transition-colors hover:text-[#4D9634]"
                     >
@@ -168,8 +171,8 @@ export default function Navbar() {
 
               <a
                 href={`tel:${company.phone.replace(/\s+/g, "")}`}
-                className="btn-primary flex w-full items-center justify-center gap-2 py-4"
                 onClick={closeMobileMenu}
+                className="btn-primary flex w-full items-center justify-center gap-2 py-4"
               >
                 <Phone size={18} />
                 {company.phone}

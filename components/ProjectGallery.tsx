@@ -84,6 +84,7 @@ export default function ProjectGallery({
           {displayProjects.map((project) => (
             <Link
               key={project.id}
+              id={project.id}
               href={`/projects#${project.id}`}
               className="group relative block aspect-square overflow-hidden rounded-[1.25rem] border border-[#E2E8F0] bg-[#F8FAFC] shadow-[0_5px_18px_rgba(15,23,42,0.08)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_22px_46px_rgba(15,23,42,0.18)]"
             >
