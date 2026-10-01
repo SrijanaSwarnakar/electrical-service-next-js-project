@@ -5,7 +5,10 @@ import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative isolate min-h-[calc(100vh-88px)] overflow-hidden bg-[#0B1220] text-white">
+    <section
+      id="home"
+      className="relative isolate min-h-[calc(100vh-88px)] scroll-mt-24 overflow-hidden bg-[#0B1220] text-white"
+    >
       <div className="absolute inset-0 -z-20">
         <Image
           src="/images/fbpage.jpg"
@@ -26,7 +29,7 @@ export default function Hero() {
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#0B1220]/55 px-4 py-2 backdrop-blur-md">
             <span className="h-2 w-2 rounded-full bg-[#72C452] shadow-[0_0_0_5px_rgba(114,196,82,0.13)]" />
             <span className="text-xs font-extrabold uppercase tracking-[0.12em] text-white">
-              Melbourne&apos;s Trusted Electricians
+              Melbourne's Trusted Electricians
             </span>
           </div>
 
